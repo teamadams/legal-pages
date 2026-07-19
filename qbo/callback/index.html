@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Connecting QuickBooks — Soren</title>
+</head>
+<body>
+  <main>
+    <h1>Connecting QuickBooks</h1>
+    <p id="status">Returning securely to the local Soren connector…</p>
+  </main>
+  <script>
+    const localCallback = "http://localhost:8765/qbo/soren/prod/callback";
+    const destination = localCallback + window.location.search + window.location.hash;
+    window.location.replace(destination);
+    window.setTimeout(() => {
+      document.getElementById("status").textContent =
+        "The local connector did not respond. Return to Soren and restart the connection.";
+    }, 3000);
+  </script>
+</body>
+</html>
